@@ -1,4 +1,5 @@
 'use strict';
+const url = 'https://adachi920.github.io/assessment/assessment.html';
 const userNameInput = document.getElementById('user-name');
 const assessmentButton = document.getElementById('assessment');
 const resultDivided = document.getElementById('result-area');
@@ -43,15 +44,15 @@ assessmentButton.onclick = () => {
     //TODO ツイートエリアの作成
     removeAllChildren(tweetDivided);
     const anchor = document.createElement('a');
-    const hrefValue = 
-    'https://twitter.com/intent/tweet?button_hashtag=' + 
-    encodeURIComponent('あなたのいいところ') + 
-    '&ref_src=twsrc%5Etfw';
+    const hrefValue = 'https://twitter.com/share?ref_src=twsrc%5Etfw';
 
     anchor.setAttribute('href', hrefValue);
-    anchor.className = 'twitter-hashtag-button';
+    anchor.className = 'twitter-share-button';
     anchor.setAttribute('data-text', result);
-    anchor.innerText = 'Tweet #あなたのいいところ';
+    anchor.setAttribute('data-url', url);
+    anchor.setAttribute('data-hashtags', 'あなたのいいところ');
+    anchor.setAttribute('data-size', 'large');
+    anchor.innerText = '#あなたのいいところ';
     tweetDivided.appendChild(anchor);
 
     const script = document.createElement('script');
